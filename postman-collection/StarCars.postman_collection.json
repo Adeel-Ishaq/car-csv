@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "6561343c-7497-4d04-b8d7-2b9cd7ecdeec",
+		"name": "StarCars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9009/api/csv/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"api",
+						"csv",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Cars",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "*/car-csv/postman-collection/car.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9009/api/csv/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"api",
+						"csv",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
