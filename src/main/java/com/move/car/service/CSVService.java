@@ -3,7 +3,6 @@ package com.move.car.service;
 import com.move.car.helper.CSVHelper;
 import com.move.car.model.Car;
 import com.move.car.repository.CarRepository;
-import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,10 +13,12 @@ import java.util.Comparator;
 import java.util.List;
 
 @Service
+//@EnableMongoRepositories
 public class CSVService {
 
     @Autowired
     CarRepository repository;
+
 
     public void save(MultipartFile file) {
         try {
@@ -35,7 +36,7 @@ public class CSVService {
         carList.sort(new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
-                return Long.compare(o1.getId(), o2.getId());
+                return Long.compare(o1.id, o2.id);
             }
         });
         return carList;
