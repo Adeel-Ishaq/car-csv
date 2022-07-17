@@ -14,10 +14,10 @@ import java.util.List;
 
 @Service
 //@EnableMongoRepositories
-public class CSVService {
+public class CarService {
 
     @Autowired
-    CarRepository repository;
+    private CarRepository repository;
 
 
     public void save(MultipartFile file) {
@@ -36,7 +36,7 @@ public class CSVService {
         carList.sort(new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
-                return Long.compare(o1.id, o2.id);
+                return Long.compare(o1.getId(), o2.getId());
             }
         });
         return carList;

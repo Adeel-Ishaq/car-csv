@@ -3,7 +3,7 @@ package com.move.car.controller;
 import com.move.car.helper.CSVHelper;
 import com.move.car.message.ResponseMessage;
 import com.move.car.model.Car;
-import com.move.car.service.CSVService;
+import com.move.car.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,10 @@ import java.util.List;
 
 @RequestMapping("/api/csv")
 @RestController
-public class CSVController {
+public class CarController {
 
     @Autowired
-    CSVService fileService;
+    CarService fileService;
 
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
