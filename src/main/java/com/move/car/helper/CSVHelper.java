@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVHelper {
-    private static String TYPE = "text/csv";
+    private static final String TYPE = "text/csv";
     public static boolean hasCSVFormat(MultipartFile file) {
         if (!TYPE.equals(file.getContentType())) {
             return false;
