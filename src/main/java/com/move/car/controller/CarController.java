@@ -16,14 +16,14 @@ import java.util.List;
 @RestController
 public class CarController {
     @Autowired
-    CarService fileService;
+    private CarService carService;
 
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
         String message = "";
         if (CSVHelper.hasCSVFormat(file)) {
             try {
-                fileService.save(file);
+                carService.save(file);
                 message = "Uploaded the file successfully: " + file.getOriginalFilename();
                 return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
             } catch (Exception e) {
@@ -37,7 +37,7 @@ public class CarController {
     @GetMapping("/cars")
     public ResponseEntity<List<Car>> getAllCars() {
         try {
-            List<Car> carList = fileService.getAllCars();
+            List<Car> carList = carService.getAllCars();
             if (carList.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
