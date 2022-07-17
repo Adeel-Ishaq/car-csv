@@ -28,6 +28,9 @@
 		},
 		{
 			"name": "Upload Cars",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -37,7 +40,44 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "*/car-csv/postman-collection/car.csv"
+							"src": "/Users/tishaq/Desktop/Spring School/car-csv/postman-collection/car.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9009/api/csv/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"api",
+						"csv",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Cars failed for broken csv",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data; boundary=<calculated when request is sent>",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/tishaq/Desktop/Spring School/car-csv/postman-collection/brokenData_car.csv"
 						}
 					]
 				},
